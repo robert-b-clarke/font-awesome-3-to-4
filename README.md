@@ -6,7 +6,7 @@ Author: Robert Clarke <rob@redanorak.co.uk>
 
 ## Introduction
 
-A simple utility designed to help you upgrade from font awesome 3.2 to 4.0 as per the [official instructions](https://github.com/FortAwesome/Font-Awesome/wiki/Upgrading-from-3.2.1-to-4).
+A simple utility designed to automate the process of upgrading your HTML files or templates from font awesome 3.2 to 4.0. Modifies class names and class structure as per the [official instructions](https://github.com/FortAwesome/Font-Awesome/wiki/Upgrading-from-3.2.1-to-4).
 
 ## Installation and Dependencies
 
@@ -16,13 +16,21 @@ font-awesome-3-to-4 depends on the HTMLParser module which has been renamed in P
 
 ## Usage
 
-It's easiest to use the provided script to run the converter. The script accepts one or more html file paths as it's arguments, parses the html within the files and overwrites the files.
+It's easiest to use the provided script to run the converter. The script accepts one or more html file paths as its arguments, parses the HTML within the files and overwrites the files.
 
 ```
 $ python fa3tofa4.py ~/website/index.html
 ```
 
-If you're feeling very confident you can feed it a list of all your html files using xargs or similar. Obviously exercise some caution when doing that!
+The script accepts one or more html file paths as it's arguments, parses the html within the files and overwrites the files. If you're feeling very confident you can feed it a list of all your html files using xargs or similar. Obviously exercise some caution when doing that!
+
+Alternatively you can fire up a shell in the source directory and talk directly to the parser
+
+```
+>>> from fontawesomeupgrader import FontAwesomeUpgrader
+>>> fa_upgrader = FontAwesomeUpgrader()
+>>> fa_upgrader.process_html('hello<div><i class="icon-check"></i>')
+```
 
 ## What does it do?
 
@@ -35,13 +43,13 @@ font-awesome-3-to-4 has been tested on a large batch of Django templates with po
 ## Known limitations
 
 * stacked icons required some manual interventation for a succesful migration - see the font awesome docs for their implementation in fa 4.x
-* icon classes referenced in CSS or JavaScript will not be parsed
+* icon classes referenced in CSS or JavaScript will not be parsed, you'll need to fix those yourself
 
 ## Todo
 
 * Check it works ok with various character encodings
 * Python 3 support
-* Possibly break out HTMLFixerBase into separate project
+* Possibly break out HTMLFixerBase into separate project for future HTML maintenace chores
 
 ## License
 
