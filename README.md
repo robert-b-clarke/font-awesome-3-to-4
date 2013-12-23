@@ -1,6 +1,6 @@
 # font-awesome-3-to-4
 
-**A Python utility for upgrading font awesome classes from HTML v3.2 to v4.0**
+**A Python utility for upgrading HTML font awesome classes from v3.2 to v4.0**
 
 Author: Robert Clarke <rob@redanorak.co.uk>
 
