@@ -7,7 +7,7 @@ class HTMLFixerBase(HTMLParser):
     def __init__(self, *args, **kwargs):
         HTMLParser.__init__(self, *args, **kwargs)
         #HTMLParser not a new style class so using super to reach base class doesn't work
-        self._completed_html = str()
+        #self._completed_html = str()
 
     def handle_starttag(self, tag, attrs):
         self._completed_html += self.get_starttag_text()
@@ -34,9 +34,10 @@ class HTMLFixerBase(HTMLParser):
         '<blink>Stuff &amp; nonsense <font></blink>'
         >>> parser.process_html('<p><input type="text"></p>')
         '<p><input type="text"></p>'
-        >>> parser.process_html('<input type="text" />')
+        >>> parser.process_html('<p><input type="text" /></p>')
         '<p><input type="text" /></p>'
         """
+        self._completed_html = str()
         self.feed(html_in)
         return self._completed_html
 
