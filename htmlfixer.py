@@ -32,6 +32,10 @@ class HTMLFixerBase(HTMLParser):
         >>> parser = HTMLFixerBase()
         >>> parser.process_html('<blink>Stuff &amp; nonsense <font></blink>')
         '<blink>Stuff &amp; nonsense <font></blink>'
+        >>> parser.process_html('<p><input type="text"></p>')
+        '<p><input type="text"></p>'
+        >>> parser.process_html('<input type="text" />')
+        '<p><input type="text" /></p>'
         """
         self.feed(html_in)
         return self._completed_html
