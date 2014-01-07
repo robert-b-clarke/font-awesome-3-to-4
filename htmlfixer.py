@@ -7,13 +7,21 @@ class HTMLFixerBase(HTMLParser):
     def __init__(self, *args, **kwargs):
         HTMLParser.__init__(self, *args, **kwargs)
         #HTMLParser not a new style class so using super to reach base class doesn't work
-        #self._completed_html = str()
+        self._after_self_closing = False
 
     def handle_starttag(self, tag, attrs):
-        self._completed_html += self.get_starttag_text()
+        starttag_text = self.get_starttag_text()
+        #take care with self closing xhtml tags
+        self._after_self_closing = True if starttag_text.endswith('/>') else False
+        self._completed_html += starttag_text
 
     def handle_endtag(self, tag):
-        self._completed_html += "</%s>" % (tag)
+        if self._after_self_closing:
+            #can only be one self closing tag at a time, so reset the flag
+            self._after_self_closing = False
+        else:
+            #if not self closing tag then output an end tag
+            self._completed_html += "</%s>" % (tag)
 
     def handle_data(self, data):
         self._completed_html += data
