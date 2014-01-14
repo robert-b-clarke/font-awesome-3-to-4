@@ -3,6 +3,7 @@
 **A Python utility for upgrading HTML font awesome classes from v3.2 to v4.0**
 
 Author: Robert Clarke <rob@redanorak.co.uk>
+Contributor: Bryan Keiren <contact@bryankeiren.com>
 
 ## Introduction
 
@@ -48,7 +49,6 @@ font-awesome-3-to-4 has been tested on a large batch of Django templates with po
 ## Todo
 
 * Check it works ok with various character encodings
-* Python 3 support
 * Possibly break out HTMLFixerBase into separate project for future HTML maintenace chores
 
 ## License
