@@ -1,4 +1,13 @@
-from HTMLParser import HTMLParser
+# Upgrade Note (Bryan Keiren):
+# HTMLParser has been renamed to html.parser in Python 3, so we first try to import the
+# Python 3 version, and if that fails because we're running on Python 2.x we import
+# a Python 2.x version.
+try:
+    # Attempt the Python 3 import.
+    from HTMLParser import HTMLParser
+except (ImportError) as e:  
+    # If Python 3 import doesn't work, fall back to Python 2.x
+    from html.parser import HTMLParser
 
 class HTMLFixerBase(HTMLParser):
     """A sub class of the Python HTMLParser that copies everything as is

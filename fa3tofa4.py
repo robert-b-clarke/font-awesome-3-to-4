@@ -17,6 +17,6 @@ for html_file in html_files:
     #write the file back out
     fh = open(html_file, 'w')
     fh.write(html_out)
-fh.close()
-print "done"
+    fh.close()
+print ("done")
 

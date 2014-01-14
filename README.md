@@ -4,6 +4,8 @@
 
 Author: Robert Clarke <rob@redanorak.co.uk>
 
+Contributor: Bryan Keiren <contact@bryankeiren.com>
+
 ## Introduction
 
 A simple utility designed to automate the process of upgrading your HTML files or templates from font awesome 3.2 to 4.0. Modifies class names and class structure as per the [official instructions](https://github.com/FortAwesome/Font-Awesome/wiki/Upgrading-from-3.2.1-to-4).
@@ -48,7 +50,6 @@ font-awesome-3-to-4 has been tested on a large batch of Django templates with po
 ## Todo
 
 * Check it works ok with various character encodings
-* Python 3 support
 * Possibly break out HTMLFixerBase into separate project for future HTML maintenace chores
 
 ## License
