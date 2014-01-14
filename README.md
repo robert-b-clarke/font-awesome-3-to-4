@@ -3,6 +3,7 @@
 **A Python utility for upgrading HTML font awesome classes from v3.2 to v4.0**
 
 Author: Robert Clarke <rob@redanorak.co.uk>
+
 Contributor: Bryan Keiren <contact@bryankeiren.com>
 
 ## Introduction
